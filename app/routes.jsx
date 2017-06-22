@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 import { fetchVoteData } from './fetch-data';
 import { App, Vote, Dashboard, About, LoginOrRegister } from './pages';
+import HomeContainer from './containers/homeContainer';
 
 /*
  * @param {Redux Store}
@@ -33,6 +34,7 @@ export default (store) => {
     <Route path="/" component={App}>
       <IndexRoute component={Vote} fetchData={fetchVoteData} />
       <Route path="login" component={LoginOrRegister} onEnter={redirectAuth} />
+      <Route path="video" component={HomeContainer} />
       <Route path="dashboard" component={Dashboard} onEnter={requireAuth} />
       <Route path="about" component={About} />
     </Route>
